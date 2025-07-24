@@ -106,6 +106,6 @@ def render_upload_section():
         st.session_state.explainer_manager = None
         st.session_state.predictions = None
         st.session_state.selected_instance = None
-        st.experimental_rerun()
+        st.rerun()
     
     return model_uploaded, data_uploaded

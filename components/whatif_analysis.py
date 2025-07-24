@@ -145,7 +145,7 @@ def render_whatif_analysis():
                 if st.form_submit_button("✅ Apply Changes"):
                     st.session_state.whatif_modified = pd.Series(edited_values)
                     st.success("Features updated!")
-                    st.experimental_rerun()
+                    st.rerun()
         
         with tab2:
             st.markdown("**Use sliders to modify features:**")
@@ -187,7 +187,7 @@ def render_whatif_analysis():
                     for feature, value in slider_values.items():
                         st.session_state.whatif_modified[feature] = value
                     st.success("Slider values applied!")
-                    st.experimental_rerun()
+                    st.rerun()
         
         with tab3:
             st.markdown("**Apply batch modifications:**")
@@ -209,7 +209,7 @@ def render_whatif_analysis():
                 if st.button("📈 Apply Scaling", key="apply_scaling"):
                     st.session_state.whatif_modified = st.session_state.whatif_modified * scale_factor
                     st.success(f"All features scaled by {scale_factor}")
-                    st.experimental_rerun()
+                    st.rerun()
             
             with col2:
                 st.markdown("**Add noise:**")
@@ -226,7 +226,7 @@ def render_whatif_analysis():
                     noise = np.random.normal(0, noise_level/100, len(st.session_state.whatif_modified))
                     st.session_state.whatif_modified = st.session_state.whatif_modified * (1 + noise)
                     st.success(f"Added {noise_level}% noise")
-                    st.experimental_rerun()
+                    st.rerun()
         
         # Save current state to history
         if st.button("💾 Save Current State", key="save_state"):
@@ -272,13 +272,13 @@ def render_whatif_analysis():
                 if st.button("🔄 Restore Selected", key="restore_history"):
                     st.session_state.whatif_modified = st.session_state.whatif_history[selected_history]['features']
                     st.success(f"Restored state {selected_history}")
-                    st.experimental_rerun()
+                    st.rerun()
             
             with col2:
                 if st.button("🗑️ Clear History", key="clear_history"):
                     st.session_state.whatif_history = []
                     st.success("History cleared")
-                    st.experimental_rerun()
+                    st.rerun()
             
             with col3:
                 # Download history
