@@ -1,0 +1,8 @@
+flask
+flask-cors
+openai
+anthropic
+requests
+pandas
+numpy
+python-dotenv
