@@ -49,9 +49,9 @@ An interactive dashboard to visualize and interpret black-box ML model predictio
 
 ### Quick Demo with Sample Data
 
-The repository includes sample models and datasets for immediate testing:
+The repository includes a sample data generator for immediate testing:
 
-1. **Run the sample data generator** (optional, already included):
+1. **Generate sample models and datasets**:
    ```bash
    python create_sample_data.py
    ```
